@@ -23,7 +23,7 @@
             return {
                 menus: [
                     {title: 'Home', link: '/'},
-                    {title: 'Sign In', link: '/signin'},
+                    {title: 'Sign up', link: '/signup'},
                     {title: 'Memo', link: '/memo'},
                     {title: 'Board', link: '/board'}
                 ]

@@ -38,8 +38,14 @@
                 //event.preventDefault();
                 var d = new Date();
                 var today = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+
+                var memos = JSON.parse(localStorage.getItem('memos'));
+                if(memos != undefined){
+                    this.memo.no = memos.length + 1;
+                } else {
+                    this.memo.no += 1;
+                }
                 
-                this.memo.no += 1;
                 this.memo.wdate = today;
 
                 // 부모 컴포넌트(MemoApp)에 방금 작성한 메모 전달

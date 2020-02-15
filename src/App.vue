@@ -4,6 +4,7 @@
     <nav-comp></nav-comp>
     <div class="row">
       <!-- 로그인 -->
+      <login-comp></login-comp>
       <div class="col-md-9">
         <router-view></router-view>
       </div>
@@ -14,6 +15,7 @@
 <script>
 import Header from './components/Header.vue'
 import Nav from './components/Nav.vue'
+import Login from './components/user/Login.vue'
   export default {
     data(){
       return {
@@ -22,7 +24,8 @@ import Nav from './components/Nav.vue'
     },
     components: {
       'header-comp': Header,
-      'nav-comp': Nav
+      'nav-comp': Nav,
+      'login-comp': Login
     }
   }
 </script>

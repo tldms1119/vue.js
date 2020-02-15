@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../components/Home.vue'
 import NotFound from '../components/NotFound.vue'
-import SignIn from '../components/SignIn.vue'
+import Signup from '../components/user/Signup.vue'
 import MemoApp from '../components/MemoApp.vue'
 import Board from '../components/Board.vue'
 Vue.use(VueRouter);
@@ -17,9 +17,9 @@ export default new VueRouter({
             component: Home
         },
         {
-            path:'/signin',
-            name: 'Sign In',
-            component: SignIn
+            path:'/signup',
+            name: 'Sign up',
+            component: Signup
         },
         {
             path:'/memo',

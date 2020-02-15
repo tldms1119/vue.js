@@ -7,7 +7,7 @@
                 </li>        
                 <li class="list-group-item d-flex justify-content-between align-items-center"
                 v-for="tmpMemo in memoList" :key="tmpMemo.no">                   
-                    <a href="#" >{{tmpMemo.title}}</a>
+                    <a href="#" @click.prevent="showMemo(tmpMemo)">{{tmpMemo.title}}</a>
                     <span class="badge badge-danger badge-pill">{{tmpMemo.wdate}}</span>
                 </li>         
             </ul>
@@ -16,11 +16,19 @@
 </template>
 
 <script>
+import eventBus from '../eventBus/index.js'
+
     export default {
         props: ['memo-list'],
         data(){
             return {
 
+            }
+        },
+        methods: {
+            showMemo(val){
+                // alert(val.msg);
+                eventBus.$emit('show-view', val);
             }
         }
     }
