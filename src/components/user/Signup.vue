@@ -54,6 +54,7 @@
 </template>
 
 <script>
+import axios from 'axios';
     export default {
         data(){
             return {
@@ -95,16 +96,30 @@
                 }
             }, 
             submit(){
+                var vm = this;
                 if(!this.idErr && !this.pwdErr && !this.pwdErr2){
                     this.isProcess = true;
-                    // alert('회원가입 요청중..');
-                    // axios 로 서버에 비동기 요청 예정
-
-                    // 로컬 스토리지에 'vue-user'로 해서 방금 가입한 회원 정보를 저장하세요
-                    localStorage.setItem('vue-user', JSON.stringify(this.user));
-
-                    this.isProcess = false;
-                    this.$router.push('/memo');
+                    // axios 로 서버에 비동기 요청
+                    // 파라미터 데이터를 서버에 보낼 때 URLSearchParams
+                    var params = new URLSearchParams();
+                    params.append("name", this.user.name);
+                    params.append("id", this.user.id);
+                    params.append("pwd", this.user.pwd);
+                    params.append("email", this.user.email);
+                    // 'userAdd.json
+                    var url="http://localhost:9090/signup.jsp";
+                    axios.post(url, params)
+                        .then(function(res){
+                            if(res.data.result > 0){
+                                alert('Sign Up Success!');
+                                vm.$router.push('/');
+                            }
+                            this.isProcess = false;
+                        }.bind(this)) /* 성공일 경우 */ // 익명 함수에 bind()를 이용하면 this 객체 사용가능(vm 에 따로 할당받지 않아도!)
+                        .catch(function(err){
+                            alert("Sign Up Failed : " + err.message);
+                            this.isProcess = false;
+                        }) /* 실패일 경우 */
                 }
             }
         }

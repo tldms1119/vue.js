@@ -4,7 +4,7 @@ import Home from '../components/Home.vue'
 import NotFound from '../components/NotFound.vue'
 import Signup from '../components/user/Signup.vue'
 import MemoApp from '../components/MemoApp.vue'
-import Board from '../components/Board.vue'
+import BoardApp from '../components/board/BoardApp.vue'
 Vue.use(VueRouter);
 
 export default new VueRouter({
@@ -28,8 +28,8 @@ export default new VueRouter({
         },
         {
             path:'/board',
-            name: 'Board',
-            component: Board
+            name: 'BoardApp',
+            component: BoardApp
         },
         {
             path:'*',

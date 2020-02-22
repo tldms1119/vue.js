@@ -6,7 +6,9 @@
       <!-- 로그인 -->
       <login-comp></login-comp>
       <div class="col-md-9">
-        <router-view></router-view>
+        <transition name="fade">
+          <router-view></router-view>
+        </transition>
       </div>
     </div>
   </div>
@@ -31,5 +33,13 @@ import Login from './components/user/Login.vue'
 </script>
 
 <style lang="scss" scoped>
-
+   .fade-enter-active, .fade-leave-active{
+             transition: all 0.5s; /* 모든 동작에 대해 감지하고 1.5초 동안 동작함 */
+    }
+    .fade-enter, .fade-leave-to {
+        opacity: 0;
+    }
+    .fade-enter-to, .fade-leave {
+        opacity: 1;
+    }
 </style>
